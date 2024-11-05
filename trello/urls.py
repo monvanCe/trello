@@ -19,7 +19,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('user.urls')),  # User uygulamasının URL'leri
-    path('', include('task.urls')),  # Task uygulamasının URL'leri
-    path('', include('category.urls')),  # Category uygulamasının URL'leri
+    path('auth/', include('dj_rest_auth.urls')),
+    path('auth/register/', include('dj_rest_auth.registration.urls')),
+    path('user/', include('user.urls')),  
+    path('task/', include('task.urls')),  
+    path('category/', include('category.urls')),  
 ]
