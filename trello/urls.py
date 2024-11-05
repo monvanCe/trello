@@ -16,17 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from user.views import UserViewSet
-from task.views import TaskViewSet
-from category.views import CategoryViewSet
-
-router = DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'tasks', TaskViewSet)
-router.register(r'categories', CategoryViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
+    path('', include('user.urls')),  # User uygulamasının URL'leri
+    path('', include('task.urls')),  # Task uygulamasının URL'leri
+    path('', include('category.urls')),  # Category uygulamasının URL'leri
 ]
